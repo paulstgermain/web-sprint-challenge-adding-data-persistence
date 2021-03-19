@@ -7,7 +7,9 @@ const get = () => {
 
 const getById = (id) => {
     return db('resources')
-        .where('resource_id', id);
+        .where('resource_id', id)
+        .select('resource_name')
+        .first();
 };
 
 const add = (resource) => {

@@ -13,6 +13,16 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:id', (req, res) => {
+    Resource.getById(req.params.id)
+        .then(resource => {
+            res.status(200).json(resource);
+        })
+        .catch(err => {
+            res.status(500).json(err.message);
+        })
+})
+
 router.post('/', (req, res) => {
     Resource.add(req.body)
         .then(newResource => {
