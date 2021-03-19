@@ -41,7 +41,22 @@ const add = (project) => {
         })
 }
 
+const update = (id, changes) => {
+    return db('projects')
+        .where('project_id', id)
+        .update(changes)
+}
+
+const remove = (id) => {
+    return db('projects')
+        .where('project_id', id)
+        .del()
+}
+
 module.exports = {
     get,
-    add
+    getById,
+    add,
+    update,
+    remove
 }

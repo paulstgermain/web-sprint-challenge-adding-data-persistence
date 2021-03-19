@@ -18,7 +18,22 @@ const add = (resource) => {
         });
 };
 
+const update = (id, changes) => {
+    return db('resources')
+        .where('resource_id', id)
+        .update(changes);
+};
+
+const remove = (id) => {
+    return db('resources')
+        .where('resource_id', id)
+        .del();
+};
+
 module.exports = {
     get,
-    add
+    getById,
+    add,
+    update,
+    remove
 }

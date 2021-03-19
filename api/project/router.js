@@ -13,14 +13,44 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/:id', (req, res) => {
+    Project.getById(req.params.id)
+        .then(project => {
+            res.status(200).json(project);
+        })
+        .catch(err => {
+            res.status(500).json(err.message);
+        });
+});
+
 router.post('/', (req, res) => {
     Project.add(req.body)
         .then(newProject => {
-            res.status(200).json(newProject);
+            res.status(201).json(newProject);
         })
         .catch(err => {
             res.status(500).json(err);
         })
 })
+
+router.put('/:id', (req, res) => {
+    Project.update(req.params.id, req.body)
+        .then(updated => {
+            res.status(200).json(updated);
+        })
+        .catch(err => {
+            res.status(500).json(err.message);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    Project.delete(req.params.id)
+        .then(deleted => {
+            res.status(200).json({ message: 'Project successfully deleted.' });
+        })
+        .catch(err => {
+            res.status(500).json(err.message);
+        });
+});
 
 module.exports = router;

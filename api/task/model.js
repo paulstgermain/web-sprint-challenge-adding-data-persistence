@@ -20,7 +20,22 @@ const add = (newTask) => {
         });
 };
 
+const update = (id, changes) => {
+    return db('tasks')
+        .where('task_id', id)
+        .update(changes);
+}
+
+const remove = (id) => {
+    return db('tasks')
+        .where('task_id', id)
+        .del();
+}
+
 module.exports = {
     get,
-    add
+    getById,
+    add,
+    update,
+    remove
 };
