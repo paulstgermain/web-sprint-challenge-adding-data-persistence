@@ -113,6 +113,19 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+
+  The difference is that SQL is not in itself, a database. Instead, it is the structure language used to interface with and operate databases through different database management systems or applications.
+
 2. Why do tables need a Primary Key?
+
+  In order to both uniquely identify each row/set of data, as well as to allow for connecting or relating rows to additional data in other tables through the use of foreign keys.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+
+  A 'Foreign Key'.
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+
+  To have a many to many relationship between two tables requires us to have an intermediary table between them which can do the heavy lifting in terms of linking the foreign keys which point to each table's primary keys. In this way, we can link seemingly separated data from separate tables together and more easily collate a representation of the connected data through our queries.
+  
+  (We may also need the appropriate pool options in our _knexfile.js_ in order to add these sorts of columns appropriately if writing our database with Knex.)
