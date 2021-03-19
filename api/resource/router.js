@@ -33,7 +33,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.deleted('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     Resource.remove(req.params.id)
         .then(deleted => {
             res.status(200).json(deleted);
